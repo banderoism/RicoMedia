@@ -1,303 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- ======= BASIC META ======= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>{{SITE_TITLE}} — {{TAGLINE}}</title>
-  <meta name="description" content="{{SHORT_DESC}}" />
-  <meta name="author" content="{{OWNER_NAME}}" />
-
-  <!-- ======= SOCIAL CARDS ======= -->
-  <meta property="og:title" content="{{SITE_TITLE}} — {{TAGLINE}}" />
-  <meta property="og:description" content="{{SHORT_DESC}}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{CANONICAL_URL}}" />
-  <meta property="og:image" content="{{CANONICAL_URL}}/assets/img/og-cover.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="{{CANONICAL_URL}}" />
-
-  <!-- Optional: fonts (remove if you like system fonts only) -->
+  <title>Juan Rico | Videographer</title>
+  <meta name="description" content="Juan Rico is a California-based videographer offering aerial, event, promo, and documentary video services." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- ======= STYLES ======= -->
-  <link rel="stylesheet" href="/css/styles.css" />
-
-  <!-- ======= JSON-LD: PERSON (edit values) ======= -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Juan Rico | Videographer" />
+  <meta property="og:description" content="Aerial, event, promo, and documentary video." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-cover.jpg" />
+  <meta property="og:url" content="https://YOUR-DOMAIN.com" />
+  <!-- JSON‑LD -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"{{OWNER_NAME}}",
-    "jobTitle":"{{OWNER_TITLE}}",
-    "url":"{{CANONICAL_URL}}",
-    "image":"{{CANONICAL_URL}}/assets/img/headshot.webp",
-    "knowsAbout":["Commercial video","Event video","Aerial cinematography"],
-    "areaServed":["San Diego","Tijuana","Southern California"],
-    "sameAs":[
-      "https://instagram.com/{{INSTAGRAM_HANDLE}}",
-      "https://youtube.com/@{{YOUTUBE_HANDLE}}",
-      "mailto:{{PUBLIC_EMAIL}}"
-    ]
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Juan Rico",
+    "jobTitle": "Videographer",
+    "url": "https://YOUR-DOMAIN.com",
+    "sameAs": [
+      "https://www.instagram.com/conjurai.47/"
+    ],
+    "knowsAbout": ["Aerial cinematography", "Event recap videos", "Promotional videos", "Documentary"],
+    "worksFor": {"@type": "Organization", "name": "Rico Visuals"}
   }
   </script>
-
-  <!-- Optional: faster thumbnail host -->
-  <link rel="preconnect" href="https://img.youtube.com" crossorigin>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #0b0b0b; --fg: #f4f4f5; --muted: #a1a1aa; --accent: #e2e8f0; }
+    html, body { background: var(--bg); color: var(--fg); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    /* Smooth fade for images */
+    .fade { opacity: 0; transform: translateY(6px); transition: opacity .5s ease, transform .5s ease; }
+    .fade.loaded { opacity: 1; transform: translateY(0); }
+    /* Simple marquee for client logos */
+    .marquee { display: flex; gap: 3rem; animation: marquee 26s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  </style>
 </head>
-<body>
-  <!-- ======= HEADER ======= -->
-  <header class="header" role="banner">
-    <div class="container header-content">
-      <div class="logo">
-        <h1>{{OWNER_NAME}} <span class="accent">| {{BRAND_NAME}}</span></h1>
-      </div>
-      <nav class="nav" aria-label="Primary">
-        <ul>
-          <li><a href="#reel">Reel</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="antialiased">
+  <!-- Top Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-black/60 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="text-xl font-extrabold tracking-tight">JUAN RICO<span class="text-zinc-400">.video</span></a>
+      <nav class="hidden md:flex gap-6 text-sm text-zinc-300">
+        <a href="#work" class="hover:text-white">Work</a>
+        <a href="#services" class="hover:text-white">Services</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
       </nav>
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm px-4 py-2">Get a quote</a>
     </div>
   </header>
 
-  <!-- ======= HERO ======= -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <h2 class="hero-headline">{{HERO_LINE}}</h2>
-      <p class="hero-subheadline">{{HERO_SUB}}</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Book a 15-min call</a>
-        <button class="btn btn-ghost" data-open="reel-modal" aria-haspopup="dialog" aria-controls="reel-modal">
-          Watch 60-sec reel
-        </button>
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <video class="w-full h-[60vh] md:h-[72vh] object-cover brightness-90" autoplay muted loop playsinline poster="/hero.jpg">
+      <!-- Replace with a short 10–15s muted reel loop hosted in /public -->
+      <source src="/hero-reel.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/60"></div>
+    <div class="absolute inset-0 max-w-7xl mx-auto px-4 flex flex-col justify-end pb-10">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Cinematic stories. Aerial perspective. Real moments.</h1>
+      <p class="mt-3 max-w-2xl text-zinc-300">A California-based videographer crafting aerial, event, promo, and documentary films for brands, artists, and communities.</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#work" class="rounded-xl bg-white text-black px-5 py-2.5 font-semibold">See work</a>
+        <a href="#contact" class="rounded-xl border border-white/20 px-5 py-2.5">Book a shoot</a>
       </div>
     </div>
   </section>
 
-  <!-- Reel modal (opens on button) -->
-  <div id="reel-modal" class="modal" role="dialog" aria-modal="true" aria-label="Showreel" hidden>
-    <button class="modal-close" aria-label="Close" data-close>×</button>
-    <div class="modal-body">
-      <div class="video-embed">
-        <!-- Replace VIDEO_ID_REEL -->
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_REEL}}?rel=0"
-          title="Showreel"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======= REEL SECTION (optional inline embed; remove if you want modal only) ======= -->
-  <section class="reel" id="reel">
-    <div class="container">
-      <div class="section-header"><h3>Selected Works — {{YEAR}}</h3></div>
-      <div class="reel-container">
-        <div class="video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_REEL}}?rel=0"
-            title="Reel"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-      </div>
+  <!-- Quick badges / social -->
+  <section class="border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between gap-4">
+      <div class="text-sm text-zinc-300">Aerial • Events • Promos • Documentary • Music</div>
+      <a href="https://www.instagram.com/conjurai.47/" target="_blank" rel="noopener" class="text-sm underline underline-offset-4">Instagram</a>
     </div>
   </section>
 
-  <!-- ======= WORK ======= -->
-  <section id="work" aria-labelledby="work-title">
-    <div class="container">
-      <h2 id="work-title">Selected Work</h2>
+  <!-- Work grid with category filters -->
+  <section id="work" class="max-w-7xl mx-auto px-4 py-14">
+    <div class="flex items-end justify-between gap-6 mb-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Selected Work</h2>
+      <div class="flex flex-wrap gap-2 text-xs">
+        <button data-filter="all" class="filter-btn rounded-full border px-3 py-1.5 border-white/20 bg-white/10">All</button>
+        <button data-filter="aerial" class="filter-btn rounded-full border px-3 py-1.5 border-white/20">Aerial</button>
+        <button data-filter="event" class="filter-btn rounded-full border px-3 py-1.5 border-white/20">Event</button>
+        <button data-filter="promo" class="filter-btn rounded-full border px-3 py-1.5 border-white/20">Promo</button>
+        <button data-filter="music" class="filter-btn rounded-full border px-3 py-1.5 border-white/20">Music</button>
+      </div>
+    </div>
 
-      <!-- Card 1 -->
-      <article class="case">
-        <img src="https://img.youtube.com/vi/{{VIDEO_ID_COMMERCIAL}}/maxresdefault.jpg" alt="Commercial project thumbnail" loading="lazy" width="640" height="360" sizes="(max-width: 900px) 100vw, 640px">
-        <div>
-          <h3>Commercial — Product Spot</h3>
-          <p><strong>Role:</strong> Producer, DP, Editor</p>
-          <p><strong>Deliverables:</strong> 30–45 sec hero + 3× 10–15 sec verticals</p>
-          <p><strong>Result:</strong> +28% CTR vs prior creative</p>
-          <button class="btn btn-ghost" data-open="modal-commercial">Watch</button>
+    <!-- Replace the items below with real YouTube/Vimeo IDs or Netlify-hosted mp4s. Add more cards as needed. -->
+    <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card -->
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="aerial">
+        <img src="https://img.youtube.com/vi/VIDEOID_1/hqdefault.jpg" alt="Aerial reel thumbnail" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Aerial City Update</h3>
+          <p class="text-sm text-zinc-400">Drone mini‑doc • 0:48</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="https://www.youtube.com/embed/VIDEOID_1?autoplay=1">Watch</button>
         </div>
       </article>
 
-      <!-- Card 2 -->
-      <article class="case">
-        <img src="https://img.youtube.com/vi/{{VIDEO_ID_PROMO}}/maxresdefault.jpg" alt="Promo project thumbnail" loading="lazy" width="640" height="360" sizes="(max-width: 900px) 100vw, 640px">
-        <div>
-          <h3>Promo — Brand Teaser</h3>
-          <p><strong>Role:</strong> Director, Editor</p>
-          <p><strong>Deliverables:</strong> 45–60 sec main + 1 vertical</p>
-          <p><strong>Result:</strong> 45% IG 3-sec watch-through</p>
-          <button class="btn btn-ghost" data-open="modal-promo">Watch</button>
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="event">
+        <img src="https://img.youtube.com/vi/VIDEOID_2/hqdefault.jpg" alt="Event recap" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Festival Recap</h3>
+          <p class="text-sm text-zinc-400">Event highlight • 1:02</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="https://www.youtube.com/embed/VIDEOID_2?autoplay=1">Watch</button>
         </div>
       </article>
 
-      <!-- Card 3 -->
-      <article class="case">
-        <img src="https://img.youtube.com/vi/{{VIDEO_ID_TRAVEL}}/maxresdefault.jpg" alt="Travel docu-style thumbnail" loading="lazy" width="640" height="360" sizes="(max-width: 900px) 100vw, 640px">
-        <div>
-          <h3>Travel — Docu-style Short</h3>
-          <p><strong>Role:</strong> Shooter, Editor</p>
-          <p><strong>Deliverables:</strong> 60–90 sec cut</p>
-          <p><strong>Result:</strong> Lift in brand engagement</p>
-          <button class="btn btn-ghost" data-open="modal-travel">Watch</button>
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="promo">
+        <img src="https://img.youtube.com/vi/VIDEOID_3/hqdefault.jpg" alt="Promo spot" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Local Business Promo</h3>
+          <p class="text-sm text-zinc-400">Promo • 0:30</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="https://www.youtube.com/embed/VIDEOID_3?autoplay=1">Watch</button>
         </div>
       </article>
 
-      <!-- Card 4 -->
-      <article class="case">
-        <img src="https://img.youtube.com/vi/{{VIDEO_ID_AERIAL}}/maxresdefault.jpg" alt="Aerial project thumbnail" loading="lazy" width="640" height="360" sizes="(max-width: 900px) 100vw, 640px">
-        <div>
-          <h3>Aerial — Cinematic Drone</h3>
-          <p><strong>Role:</strong> Part 107 pilot, Editor</p>
-          <p><strong>Deliverables:</strong> 45–75 sec aerial cut + stills</p>
-          <p><strong>Result:</strong> Listing/advertising-ready footage</p>
-          <button class="btn btn-ghost" data-open="modal-aerial">Watch</button>
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="music">
+        <img src="https://img.youtube.com/vi/VIDEOID_4/hqdefault.jpg" alt="Music performance" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Live Performance</h3>
+          <p class="text-sm text-zinc-400">Music recap • 0:59</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="https://www.youtube.com/embed/VIDEOID_4?autoplay=1">Watch</button>
+        </div>
+      </article>
+
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="promo">
+        <img src="/thumbs/heritage.jpg" alt="Retail promo" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Retail Feature</h3>
+          <p class="text-sm text-zinc-400">Spotlight • 0:20</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="/videos/retail-feature.mp4">Watch</button>
+        </div>
+      </article>
+
+      <article class="card group relative overflow-hidden rounded-2xl border border-white/10" data-cat="aerial">
+        <img src="/thumbs/arvin.jpg" alt="Arvin aerial" class="w-full aspect-video object-cover fade"/>
+        <div class="p-4">
+          <h3 class="font-semibold">Arvin From Above</h3>
+          <p class="text-sm text-zinc-400">Aerial short • 0:32</p>
+          <button class="mt-3 inline-flex items-center gap-2 text-sm underline underline-offset-4" data-video="/videos/arvin-from-above.mp4">Watch</button>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- Video modals (one per card) -->
-  <div id="modal-commercial" class="modal" role="dialog" aria-modal="true" aria-label="Commercial video" hidden>
-    <button class="modal-close" aria-label="Close" data-close>×</button>
-    <div class="modal-body">
-      <div class="video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_COMMERCIAL}}?rel=0" title="Commercial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-promo" class="modal" role="dialog" aria-modal="true" aria-label="Promo video" hidden>
-    <button class="modal-close" aria-label="Close" data-close>×</button>
-    <div class="modal-body">
-      <div class="video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_PROMO}}?rel=0" title="Promo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-travel" class="modal" role="dialog" aria-modal="true" aria-label="Travel video" hidden>
-    <button class="modal-close" aria-label="Close" data-close>×</button>
-    <div class="modal-body">
-      <div class="video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_TRAVEL}}?rel=0" title="Travel" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <div id="modal-aerial" class="modal" role="dialog" aria-modal="true" aria-label="Aerial video" hidden>
-    <button class="modal-close" aria-label="Close" data-close>×</button>
-    <div class="modal-body">
-      <div class="video-embed">
-        <iframe src="https://www.youtube-nocookie.com/embed/{{VIDEO_ID_AERIAL}}?rel=0" title="Aerial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- ======= SERVICES ======= -->
-  <section class="services" id="services" aria-labelledby="services-title">
-    <div class="container">
-      <div class="section-header"><h3 id="services-title">Services</h3></div>
-      <div class="services-grid">
-        <div class="service-card">
-          <h4>Commercial</h4>
-          <ul class="deliverables">
-            <li>Concept + shot list</li><li>Producer/DP + light kit</li><li>Music license + mix</li><li>2 revisions</li>
-          </ul>
-          <p class="price">Starter $950 · Standard $2,500</p>
-          <a class="btn btn-primary" href="#contact">Get a scope in 24h</a>
+  <!-- Services -->
+  <section id="services" class="border-y border-white/10 bg-white/5">
+    <div class="max-w-7xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Services</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-white/10 p-6">
+          <h3 class="font-semibold">Aerial Cinematography</h3>
+          <p class="mt-2 text-sm text-zinc-300">FAA‑style safe operations, location scouting, and dynamic drone moves for b‑roll and establishing shots.</p>
         </div>
-        <div class="service-card">
-          <h4>Event</h4>
-          <ul class="deliverables">
-            <li>2–4 hr or half-day coverage</li><li>60–90s recap + verticals</li><li>Basic color + titles</li><li>2 revisions</li>
-          </ul>
-          <p class="price">Starter $800 · Standard $1,500</p>
-          <a class="btn btn-primary" href="#contact">Get a scope in 24h</a>
+        <div class="rounded-2xl border border-white/10 p-6">
+          <h3 class="font-semibold">Event Recaps</h3>
+          <p class="mt-2 text-sm text-zinc-300">From festivals to community events, quick turn highlight edits that capture energy and story.</p>
         </div>
-        <div class="service-card">
-          <h4>Aerial</h4>
-          <ul class="deliverables">
-            <li>Part 107 ops</li><li>45–75s edit + 5–10 photos</li><li>Location planning</li><li>1–2 revisions</li>
-          </ul>
-          <p class="price">Starter $600 · Standard $1,200</p>
-          <a class="btn btn-primary" href="#contact">Get a scope in 24h</a>
+        <div class="rounded-2xl border border-white/10 p-6">
+          <h3 class="font-semibold">Brand & Promo</h3>
+          <p class="mt-2 text-sm text-zinc-300">Script‑to‑screen promos for local businesses, artists, and organizations with deliverables for Reels, Shorts, and web.</p>
+        </div>
+      </div>
+      <div class="mt-6 text-sm text-zinc-400">Add‑ons: color grading, voiceover, captions, vertical cuts, raw delivery.</div>
+    </div>
+  </section>
+
+  <!-- About / Logos -->
+  <section id="about" class="max-w-7xl mx-auto px-4 py-14">
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold">About Juan</h2>
+        <p class="mt-4 text-zinc-300">Videographer based in Kern County, California. I film the everyday beauty of Central Valley communities, small businesses, and artists, often from above.</p>
+        <p class="mt-3 text-zinc-400 text-sm">Available statewide and for travel. Turnaround for most projects: 3–10 days depending on scope.</p>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-white/10 p-6">
+        <div class="marquee items-center opacity-90">
+          <img src="/clients/placeholder-1.svg" class="h-8" alt="Client 1"/>
+          <img src="/clients/placeholder-2.svg" class="h-8" alt="Client 2"/>
+          <img src="/clients/placeholder-3.svg" class="h-8" alt="Client 3"/>
+          <img src="/clients/placeholder-4.svg" class="h-8" alt="Client 4"/>
+          <img src="/clients/placeholder-1.svg" class="h-8" alt="Client 1"/>
+          <img src="/clients/placeholder-2.svg" class="h-8" alt="Client 2"/>
+          <img src="/clients/placeholder-3.svg" class="h-8" alt="Client 3"/>
+          <img src="/clients/placeholder-4.svg" class="h-8" alt="Client 4"/>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======= ABOUT ======= -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-header"><h3>About</h3></div>
-      <div class="about-content">
-        <p>{{ABOUT_BLURB}}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= CONTACT ======= -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-header"><h3>Contact</h3></div>
-
-      <div class="contact-wrapper">
-        <!-- Netlify form -->
-        <form name="project-intake" method="POST" data-netlify="true" netlify-honeypot="robot-field" class="contact-form">
-          <input type="hidden" name="form-name" value="project-intake" />
-          <p class="hidden"><label>Don’t fill this out: <input name="robot-field" /></label></p>
-
-          <div class="form-group"><label for="name">Name</label><input id="name" name="name" required autocomplete="name"></div>
-          <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-          <div class="form-group">
-            <label for="service">Service</label>
-            <select id="service" name="service" required>
-              <option>Commercial</option><option>Event</option><option>Aerial</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="budget">Budget</label>
-            <select id="budget" name="budget" required>
-              <option>Under $1k</option><option>$1k–$3k</option><option>$3k–$7k</option><option>$7k+</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="goals">What does success look like?</label>
-            <textarea id="goals" name="goals" rows="5" required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send inquiry</button>
-        </form>
-
-        <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:{{PUBLIC_EMAIL}}">{{PUBLIC_EMAIL}}</a></p>
-          <nav class="social" aria-label="Social">
-            <a href="https://instagram.com/{{INSTAGRAM_HANDLE}}" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://youtube.com/@{{YOUTUBE_HANDLE}}" target="_blank" rel="noopener">YouTube</a>
-          </nav>
-          <p class="muted">{{SERVICE_AREA}}</p>
+  <!-- Contact (Netlify Forms ready) -->
+  <section id="contact" class="border-t border-white/10">
+    <div class="max-w-3xl mx-auto px-4 py-14">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Start a project</h2>
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="mt-6 grid gap-4">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <input class="rounded-xl bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400" type="text" name="name" placeholder="Your name" required />
+          <input class="rounded-xl bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400" type="email" name="email" placeholder="Email" required />
         </div>
-      </div>
+        <input class="rounded-xl bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400" type="text" name="company" placeholder="Company (optional)" />
+        <select name="service" class="rounded-xl bg-white/10 px-4 py-3 outline-none">
+          <option value="Aerial">Aerial</option>
+          <option value="Event Recap">Event Recap</option>
+          <option value="Promo">Promo</option>
+          <option value="Music / Live">Music / Live</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea class="rounded-xl bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400" name="message" rows="5" placeholder="Tell me about your project"></textarea>
+        <button class="w-fit rounded-xl bg-white text-black px-6 py-3 font-semibold">Send</button>
+      </form>
+      <p class="mt-4 text-sm text-zinc-400">Prefer email? <a href="mailto:hello@your-domain.com" class="underline">hello@your-domain.com</a></p>
     </div>
   </section>
 
-  <footer class="footer"><div class="container"><p>© <span id="year"></span> {{OWNER_NAME}}. All rights reserved.</p></div></footer>
+  <footer class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-zinc-400 flex flex-col md:flex-row gap-3 items-center justify-between">
+      <p>© <span id="year"></span> Juan Rico. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="https://www.instagram.com/conjurai.47/" target="_blank" rel="noopener" class="underline underline-offset-4">Instagram</a>
+        <a href="#" class="underline underline-offset-4">Vimeo</a>
+        <a href="#" class="underline underline-offset-4">YouTube</a>
+      </div>
+    </div>
+  </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="/js/script.js" defer></script>
+  <!-- Modal for video playback -->
+  <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center p-4">
+    <div class="relative w-full max-w-4xl aspect-video">
+      <button id="closeModal" class="absolute -top-10 right-0 rounded-lg bg-white/10 px-3 py-1 text-sm">Close</button>
+      <iframe id="ytframe" class="w-full h-full rounded-xl" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <video id="mp4frame" class="w-full h-full rounded-xl hidden" controls></video>
+    </div>
+  </div>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fade-in images on load
+    document.querySelectorAll('img.fade').forEach(img => {
+      if (img.complete) img.classList.add('loaded');
+      else img.addEventListener('load', () => img.classList.add('loaded'));
+    });
+
+    // Category filters
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      const cat = btn.dataset.filter;
+      buttons.forEach(b => b.classList.remove('bg-white/10'));
+      btn.classList.add('bg-white/10');
+      cards.forEach(c => {
+        const show = cat === 'all' || c.dataset.cat === cat;
+        c.style.display = show ? '' : 'none';
+      });
+    }));
+
+    // Video modal (supports YouTube embeds or direct mp4)
+    const modal = document.getElementById('modal');
+    const yt = document.getElementById('ytframe');
+    const mp4 = document.getElementById('mp4frame');
+    document.querySelectorAll('[data-video]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = btn.getAttribute('data-video');
+        modal.classList.remove('hidden');
+        if (url.endsWith('.mp4')) {
+          mp4.src = url; mp4.classList.remove('hidden'); yt.classList.add('hidden'); yt.src = '';
+        } else {
+          yt.src = url; yt.classList.remove('hidden'); mp4.classList.add('hidden'); mp4.src = '';
+        }
+      });
+    });
+    document.getElementById('closeModal').addEventListener('click', () => { modal.classList.add('hidden'); yt.src = ''; mp4.pause(); });
+    modal.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.add('hidden'); yt.src = ''; mp4.pause(); }});
+  </script>
 </body>
 </html>
